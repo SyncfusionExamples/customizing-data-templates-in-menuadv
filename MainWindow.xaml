@@ -1,0 +1,49 @@
+﻿<syncfusion:ChromelessWindow
+    x:Class="MenuAdv_MVVM.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:MenuAdv_MVVM"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    Title="MenuAdv_Customization"
+    Width="650"
+    Height="440"
+    WindowStartupLocation="CenterScreen"
+    xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+syncfusionskin:SfSkinManager.VisualStyle="Metro"
+    mc:Ignorable="d">
+    <syncfusion:ChromelessWindow.DataContext>
+        <local:ViewModel />
+    </syncfusion:ChromelessWindow.DataContext>
+    <Grid>
+        <syncfusion:MenuAdv
+            Name="menuAadv"
+            Height="25"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            ItemsSource="{Binding MenuModel}"
+            Orientation="Horizontal">
+
+
+            <syncfusion:MenuAdv.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding MenuItems}">
+                    <StackPanel Orientation="Horizontal">
+
+                        <Image
+                            Width="15"
+                            Height="15"
+                            Source="App.ico" />
+
+                        <TextBlock
+                            FontStyle="Italic"
+                            FontWeight="Bold"
+                            Text="{Binding Header}" />
+
+                    </StackPanel>
+
+                </HierarchicalDataTemplate>
+            </syncfusion:MenuAdv.ItemTemplate>
+        </syncfusion:MenuAdv>
+    </Grid>
+</syncfusion:ChromelessWindow>
